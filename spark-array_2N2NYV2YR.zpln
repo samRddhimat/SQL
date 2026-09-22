@@ -1,0 +1,393 @@
+﻿{
+  "paragraphs": [
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://bbf84e0be725:4040/jobs/job?id=52",
+              "$$hashKey": "object:2076"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1790081232329_254095431",
+      "id": "paragraph_1790081232329_254095431",
+      "dateCreated": "2026-09-22T12:47:12+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:610",
+      "text": "%spark.pyspark\n\nfrom pyspark.sql.functions import array_contains, explode\n# insert into iceberg.my_db.users values\n# (3,'Dave',ARRAY['Python', 'SQL', 'Spark']),\n# (4,'David', ARRAY['Java', 'SQL']),\n# (5, 'Mary',ARRAY['Python', 'Databricks', 'AWS']);\n\ndfeskills = spark.table(\"iceberg.my_db.users\")\ndfeskills.show()\n",
+      "dateUpdated": "2026-09-22T14:48:32+0000",
+      "dateFinished": "2026-09-22T14:48:33+0000",
+      "dateStarted": "2026-09-22T14:48:32+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+-----+--------------------+\n| id| name|              skills|\n+---+-----+--------------------+\n|  3| Dave|[Python, SQL, Spark]|\n|  1|Alice|                NULL|\n|  2|  Bob|                NULL|\n|  4|David|         [Java, SQL]|\n|  5| Mary|[Python, Databric...|\n+---+-----+--------------------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%spark.pyspark\n\nfrom pyspark.sql.functions import size, \n\ndfeskills.select(\"id\", \"name\", size(\"skills\").alias(\"Total_skills\")).show()\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2026-09-22T13:18:23+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://bbf84e0be725:4040/jobs/job?id=38",
+              "$$hashKey": "object:1294"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1790081922296_357254332",
+      "id": "paragraph_1790081922296_357254332",
+      "dateCreated": "2026-09-22T12:58:42+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:684",
+      "dateFinished": "2026-09-22T13:14:35+0000",
+      "dateStarted": "2026-09-22T13:14:35+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+-----+------------+\n| id| name|Total_skills|\n+---+-----+------------+\n|  4|David|           2|\n|  5| Mary|           3|\n|  3| Dave|           3|\n|  1|Alice|          -1|\n|  2|  Bob|          -1|\n+---+-----+------------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%spark.pyspark\ndfeskills.select(\"id\", \"name\", size(\"skills\").alias(\"Total_skills\"),\n            dfeskills.skills[0].alias(\"first_skill\")\n            ).show()",
+      "user": "anonymous",
+      "dateUpdated": "2026-09-22T13:41:13+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://bbf84e0be725:4040/jobs/job?id=43",
+              "$$hashKey": "object:1357"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1790082856095_299520910",
+      "id": "paragraph_1790082856095_299520910",
+      "dateCreated": "2026-09-22T13:14:16+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:920",
+      "dateFinished": "2026-09-22T13:19:00+0000",
+      "dateStarted": "2026-09-22T13:18:59+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+-----+------------+-----------+\n| id| name|Total_skills|first_skill|\n+---+-----+------------+-----------+\n|  1|Alice|          -1|       NULL|\n|  2|  Bob|          -1|       NULL|\n|  3| Dave|           3|     Python|\n|  4|David|           2|       Java|\n|  5| Mary|           3|     Python|\n+---+-----+------------+-----------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%spark.pyspark\n\n\ndfeskills.select (\n    # \"name\",\n    array_contains(\"skills\",  \"Python\").alias(\"knows_python\"),\n    array_contains(\"skills\",  \"Java\").alias(\"knows_java\"),\n    array_contains(\"skills\",  \"AWS\").alias(\"knows_aws\"),\n    array_contains(\"skills\",  \"Databricks\").alias(\"knows_Databricks\"),\n    array_contains(\"skills\",  \"SQL\").alias(\"knows_SQL\"),\n    ).show(truncate=False)\n",
+      "user": "anonymous",
+      "dateUpdated": "2026-09-22T14:03:05+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://bbf84e0be725:4040/jobs/job?id=50",
+              "$$hashKey": "object:1795"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1790082993657_1065714201",
+      "id": "paragraph_1790082993657_1065714201",
+      "dateCreated": "2026-09-22T13:16:33+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:1059",
+      "dateFinished": "2026-09-22T14:03:06+0000",
+      "dateStarted": "2026-09-22T14:03:05+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------+----------+---------+----------------+---------+\n|knows_python|knows_java|knows_aws|knows_Databricks|knows_SQL|\n+------------+----------+---------+----------------+---------+\n|true        |false     |false    |false           |true     |\n|false       |true      |false    |false           |true     |\n|true        |false     |true     |true            |false    |\n|NULL        |NULL      |NULL     |NULL            |NULL     |\n|NULL        |NULL      |NULL     |NULL            |NULL     |\n+------------+----------+---------+----------------+---------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%spark.pyspark\ndfeskills.show()",
+      "user": "anonymous",
+      "dateUpdated": "2026-09-22T14:46:50+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://bbf84e0be725:4040/jobs/job?id=51",
+              "$$hashKey": "object:1900"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1790085210283_2119095757",
+      "id": "paragraph_1790085210283_2119095757",
+      "dateCreated": "2026-09-22T13:53:30+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:1362",
+      "dateFinished": "2026-09-22T14:46:51+0000",
+      "dateStarted": "2026-09-22T14:46:50+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+-----+--------------------+\n| id| name|              skills|\n+---+-----+--------------------+\n|  1|Alice|                NULL|\n|  4|David|         [Java, SQL]|\n|  5| Mary|[Python, Databric...|\n|  2|  Bob|                NULL|\n|  3| Dave|[Python, SQL, Spark]|\n+---+-----+--------------------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%spark.pyspark\ndfeskills.select(\"id\", \"name\", explode(\"skills\").alias(\"skill\")).show()",
+      "user": "anonymous",
+      "dateUpdated": "2026-09-22T14:48:56+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://bbf84e0be725:4040/jobs/job?id=53",
+              "$$hashKey": "object:2140"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1790088410501_2078820061",
+      "id": "paragraph_1790088410501_2078820061",
+      "dateCreated": "2026-09-22T14:46:50+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:1800",
+      "dateFinished": "2026-09-22T14:48:56+0000",
+      "dateStarted": "2026-09-22T14:48:56+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+-----+----------+\n| id| name|     skill|\n+---+-----+----------+\n|  3| Dave|    Python|\n|  3| Dave|       SQL|\n|  3| Dave|     Spark|\n|  4|David|      Java|\n|  4|David|       SQL|\n|  5| Mary|    Python|\n|  5| Mary|Databricks|\n|  5| Mary|       AWS|\n+---+-----+----------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%spark.pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2026-09-22T14:47:48+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1790088468617_357142896",
+      "id": "paragraph_1790088468617_357142896",
+      "dateCreated": "2026-09-22T14:47:48+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:1905"
+    }
+  ],
+  "name": "spark-array",
+  "id": "2N2NYV2YR",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.11.1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/spark-array"
+}
