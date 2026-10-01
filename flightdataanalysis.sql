@@ -19,3 +19,22 @@ dffda \
 .orderBy("trip_month") \
 .show()
 
+
+2.
+
+SELECT
+    ROW_NUMBER() OVER (ORDER BY x.trips DESC, x.passengerid)  AS sno,
+    x.passengerid,
+    x.trips as "number of flights", p.firstname, p.lastname
+FROM (
+    SELECT
+        passengerid,
+        COUNT(*) AS trips
+    FROM iceberg.fda.flightdata
+    GROUP BY passengerid
+    HAVING COUNT(*) > 1
+) x
+inner join iceberg.fda.passengers p on p.passengerid = x.passengerid 
+ORDER BY x.trips DESC, x.passengerid
+LIMIT 100;
+
